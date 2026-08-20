@@ -1,0 +1,26 @@
+{
+    "name": "my-agentic-cdp",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsx src/index.ts",
+        "build": "tsc",
+        "start": "node dist/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/better-sqlite3": "^9.6.0",
+        "@types/node": "^26.2.0",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.23.12",
+        "typescript": "^7.0.2"
+    },
+    "dependencies": {
+        "better-sqlite3": "^13.0.3",
+        "xlsx": "^0.18.5"
+    }
+}
