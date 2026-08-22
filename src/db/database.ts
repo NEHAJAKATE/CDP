@@ -34,16 +34,4 @@ export function saveBusiness(business: BusinessEntity) {
 export function findBusinessById(id: string): BusinessEntity | undefined {
   const stmt = db.prepare('SELECT * FROM businesses WHERE id = ?');
   return stmt.get(id) as BusinessEntity | undefined;
-}
-const fakebusiness: BusinessEntity = {
-  id: 'gst:TEST123',
-  name: 'Test ATC',
-  ledgerName: 'TEST PHARMA',
-  taxId: 'TEST123',
-  currentOutstanding: 45000,
-  riskLevel: 'MEDIUM',
-};
-saveBusiness(fakebusiness);
-console.log('Saved');
-const lookup = findBusinessById('gst:TEST123');
-console.log('Looked up:', lookup);
+}

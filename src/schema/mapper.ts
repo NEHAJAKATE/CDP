@@ -33,27 +33,4 @@ export function mapPartyMasterRow(raw: any): BusinessEntity {
     // currentOutstanding and riskLevel are left unset for now —
     // they get filled in later, once we process the outstanding ledger
   };
-}
-// TEMPORARY TEST — delete once confirmed working
-import * as XLSX from 'xlsx';
-import path from 'path';
-import * as fs from 'fs';
-const filePath = path.resolve(process.cwd(), 'data/party_master.xls');
-const fileBuffer = fs.readFileSync(filePath);
-const workbook = XLSX.read(fileBuffer);
-const sheetName = workbook.SheetNames[0];
-
-if (!sheetName) {
-  throw new Error('This file has no sheets — cannot continue.');
-}
-
-const sheet = workbook.Sheets[sheetName];
-
-if (!sheet) {
-  throw new Error(`Sheet "${sheetName}" not found — cannot continue.`);
-}
-
-const rows: any[] = XLSX.utils.sheet_to_json(sheet);
-
-console.log(mapPartyMasterRow(rows[0]));
-console.log(mapPartyMasterRow(rows.find(r => r.tin && r.tin.length > 5))); // a row that HAS a gstin
+}
